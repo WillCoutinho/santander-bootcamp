@@ -17,7 +17,7 @@ public class Account {
     @Column(nullable = false)
     private String agency;
 
-    @Column(scale = 13, precision = 2, nullable = false)// 13 dígitos no total, sendo 11 dígitos com 2 casas decimais
+    @Column(precision = 13, scale = 2, nullable = false)// 13 dígitos no total, sendo 11 dígitos com 2 casas decimais
     private BigDecimal balance;
 
     @Column(name = "additional_limit", precision = 13, scale = 2)
