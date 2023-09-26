@@ -1,0 +1,11 @@
+INSERT INTO TB_FEATURE(ID, ICON, DESCRIPTION) VALUES(1, 'feature_icon_01', 'PIX')
+INSERT INTO TB_FEATURE(ID, ICON, DESCRIPTION) VALUES(2, 'feature_icon_02', 'Boleto')
+INSERT INTO TB_FEATURE(ID, ICON, DESCRIPTION) VALUES(3, 'feature_icon_03', 'Consorcio')
+INSERT INTO TB_FEATURE(ID, ICON, DESCRIPTION) VALUES(4, 'feature_icon_04', 'Investimentos')
+INSERT INTO TB_FEATURE(ID, ICON, DESCRIPTION) VALUES(5, 'feature_icon_05', 'Open Finance')
+
+INSERT INTO TB_NEWS(ID, ICON, DESCRIPTION) VALUES(1, 'news_icon_01', 'Titulo de Capitalizacao DinDin')
+INSERT INTO TB_NEWS(ID, ICON, DESCRIPTION) VALUES(2, 'news_icon_02', 'Novo cartao disponivel')
+INSERT INTO TB_NEWS(ID, ICON, DESCRIPTION) VALUES(3, 'news_icon_03', 'Faca investimentos com a gente')
+INSERT INTO TB_NEWS(ID, ICON, DESCRIPTION) VALUES(4, 'news_icon_04', 'Pontos disponiveis no Esfera')
+INSERT INTO TB_NEWS(ID, ICON, DESCRIPTION) VALUES(5, 'news_icon_05', 'Mantenha suas chaves com a gente e ganhe descontos')
