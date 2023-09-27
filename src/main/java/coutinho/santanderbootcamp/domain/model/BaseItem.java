@@ -1,7 +1,10 @@
 package coutinho.santanderbootcamp.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 @MappedSuperclass //Extende para Feature e News as annotations
 public abstract class BaseItem {
@@ -10,6 +13,7 @@ public abstract class BaseItem {
     private Long id;
     @NotBlank
     private String icon;
+    @Column(unique = true, nullable = false)
     @NotBlank
     private String code;
     @NotBlank
