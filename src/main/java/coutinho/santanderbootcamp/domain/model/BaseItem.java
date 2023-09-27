@@ -1,17 +1,27 @@
 package coutinho.santanderbootcamp.domain.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @MappedSuperclass //Extende para Feature e News as annotations
 public abstract class BaseItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String icon;
+    @NotBlank
+    private String code;
+    @NotBlank
     private String description;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     public Long getId() {
         return id;

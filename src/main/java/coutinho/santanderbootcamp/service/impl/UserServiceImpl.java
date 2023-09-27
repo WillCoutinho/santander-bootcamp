@@ -1,11 +1,15 @@
 package coutinho.santanderbootcamp.service.impl;
 
 import coutinho.santanderbootcamp.domain.model.User;
+import coutinho.santanderbootcamp.repository.CardRepository;
+import coutinho.santanderbootcamp.repository.FeatureRepository;
+import coutinho.santanderbootcamp.repository.NewsRepository;
 import coutinho.santanderbootcamp.repository.UserRepository;
 import coutinho.santanderbootcamp.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.NoSuchElementException;
+import static coutinho.santanderbootcamp.service.validation.BusinessRulesValidation.*;
 
 /**
  * Utilizamos um pacote de implementação + interface para expor somente as assinaturas necessárias para o serviço
@@ -16,27 +20,45 @@ import java.util.NoSuchElementException;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private FeatureRepository featureRepository;
+    @Autowired
+    private NewsRepository newsRepository;
+    @Autowired
+    private CardRepository cardRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public User findById(Long id) {
-        //TODO: create an ExceptionHandler class with Business message
-        return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
+        checkUserExistsById(userRepository, id);
+        return userRepository.findById(id).get();
     }
 
     @Override
     public User create(User userToCreate) {
-        //TODO: create class with these IFs as asserts methods
-        if (userToCreate.getId() != null && userRepository.existsById(userToCreate.getId())) {
-            throw new IllegalArgumentException("This User ID already exists");
-        }
-        if (userRepository.existsByAccountNumber(userToCreate.getAccount().getNumber())) {
-            throw new IllegalArgumentException("This account number already exists");
-        }
+        checkUniqueIdRule(userRepository, userToCreate.getId());
+        checkUniqueAccountRule(userRepository, userToCreate.getAccount().getNumber());
+        checkUniqueCardNumber(cardRepository, userToCreate.getCard().getCardNumber());
+        checkFeatureCodeExists(featureRepository, userToCreate.getFeatures());
+        checkNewsCodeExists(newsRepository, userToCreate.getNews());
         return userRepository.save(userToCreate);
     }
+
+    @Override
+    public void delete(Long id) {
+        checkUserExistsById(userRepository, id);
+        User user = userRepository.getReferenceById(id);
+        userRepository.delete(user);
+    }
+
+
+//    @Override WIP
+//    public User update(Long id, User userToUpdate) {
+//        checkUserExistsById(userRepository, userToUpdate.getId());
+//        checkFeatureCodeExists(featureRepository, userToUpdate.getFeatures());
+//        checkNewsCodeExists(newsRepository, userToUpdate.getNews());
+//        return userRepository.save(userToUpdate);
+//    }
 }
