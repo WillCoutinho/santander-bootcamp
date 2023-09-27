@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         checkUniqueIdRule(userRepository, userToCreate.getId());
         checkUniqueAccountRule(userRepository, userToCreate.getAccount().getNumber());
         checkUniqueCardNumber(cardRepository, userToCreate.getCard().getCardNumber());
-        checkFeatureCodeExists(featureRepository, userToCreate.getFeatures());
+        checkFeatureCodeListExists(featureRepository, userToCreate.getFeatures());
         checkNewsCodeExists(newsRepository, userToCreate.getNews());
         return userRepository.save(userToCreate);
     }
