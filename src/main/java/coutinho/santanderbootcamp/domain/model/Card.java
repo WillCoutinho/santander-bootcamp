@@ -1,6 +1,7 @@
 package coutinho.santanderbootcamp.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.math.BigDecimal;
 
@@ -12,7 +13,7 @@ public class Card {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String number;
+    private String cardNumber;
 
     @Column(name = "additional_limit", precision = 13, scale = 2, nullable = false)
     private BigDecimal limit;
@@ -25,12 +26,12 @@ public class Card {
         this.id = id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getCardNumber() {
+        return cardNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
     public BigDecimal getLimit() {

@@ -1,6 +1,8 @@
 package coutinho.santanderbootcamp.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
@@ -12,15 +14,17 @@ public class Account {
     private Long id;
 
     @Column(unique = true, nullable = false) // Constraint
+    @NotBlank
     private String number;
 
     @Column(nullable = false)
+    @NotBlank
     private String agency;
 
     @Column(precision = 13, scale = 2, nullable = false)// 13 dígitos no total, sendo 11 dígitos com 2 casas decimais
     private BigDecimal balance;
 
-    @Column(name = "additional_limit", precision = 13, scale = 2)
+    @Column(name = "additional_limit", precision = 13, scale = 2, nullable = false)
     private BigDecimal limit;
 
     public Long getId() {

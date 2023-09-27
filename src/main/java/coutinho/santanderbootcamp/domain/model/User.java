@@ -1,6 +1,9 @@
 package coutinho.santanderbootcamp.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -10,6 +13,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL) //Deleta o que tiver vinculado à conta quando essa conta for deletada
@@ -19,11 +23,11 @@ public class User {
     private Card card;
 
     //Toda vez que buscar um usuário no banco, vai trazer a lista também pois será utilizado
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Feature> features;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<String> features;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<News> news;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<String> news;
 
     public Long getId() {
         return id;
@@ -57,19 +61,19 @@ public class User {
         this.card = card;
     }
 
-    public List<Feature> getFeatures() {
+    public List<String> getFeatures() {
         return features;
     }
 
-    public void setFeatures(List<Feature> features) {
+    public void setFeatures(List<String> features) {
         this.features = features;
     }
 
-    public List<News> getNews() {
+    public List<String> getNews() {
         return news;
     }
 
-    public void setNews(List<News> news) {
+    public void setNews(List<String> news) {
         this.news = news;
     }
 }
