@@ -20,7 +20,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/news")
-@Tag(name = "Bank News")
+@Tag(name = "News", description = "Bank news about its products and events")
 public class NewsController {
 
     @Autowired

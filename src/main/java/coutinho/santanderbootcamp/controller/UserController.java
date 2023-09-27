@@ -18,7 +18,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/users")
-@Tag(name = "Users")
+@Tag(name = "Users", description = "Users for bank dashboard")
 public class UserController {
 
     @Autowired

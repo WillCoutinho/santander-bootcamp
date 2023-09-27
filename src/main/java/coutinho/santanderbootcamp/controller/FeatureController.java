@@ -19,11 +19,8 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/feature")
-@Tag(name = "Bank Features")
+@Tag(name = "Features", description = "Banking products such as PIX, Boleto (bankslip), Credit Card and others")
 public class FeatureController {
-
-//    @Autowired
-//    private BaseService baseService;
 
     @Autowired
     private FeatureServiceImpl baseService;
