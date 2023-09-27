@@ -1,8 +1,9 @@
 package coutinho.santanderbootcamp.controller;
 
 import coutinho.santanderbootcamp.domain.model.BaseItem;
-import coutinho.santanderbootcamp.domain.model.Feature;
-import coutinho.santanderbootcamp.service.impl.FeatureServiceImpl;
+import coutinho.santanderbootcamp.domain.model.News;
+import coutinho.santanderbootcamp.service.BaseService;
+import coutinho.santanderbootcamp.service.impl.NewsServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -18,59 +19,55 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/feature")
-@Tag(name = "Bank Features")
-public class FeatureController {
-
-//    @Autowired
-//    private BaseService baseService;
+@RequestMapping("/news")
+@Tag(name = "Bank News")
+public class NewsController {
 
     @Autowired
-    private FeatureServiceImpl baseService;
+    private NewsServiceImpl baseService;
 
     @GetMapping("/id/{id}")
-    @Operation(description = "Get a Feature by Id")
+    @Operation(description = "Get a Bank News by Id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Success"),
-            @ApiResponse(responseCode = "404", description = "Feature not found", content = @Content)
+            @ApiResponse(responseCode = "404", description = "Bank News not found", content = @Content)
     })
     public ResponseEntity<BaseItem> findById(@PathVariable(name = "id")
                                              @Parameter(name = "id",
-                                                     description = "Feature ID",
+                                                     description = "Bank News ID",
                                                      example = "1") Long id) {
-        BaseItem featureDb = baseService.findById(id);
-        return ResponseEntity.ok(featureDb);
-
+        BaseItem newsDb = baseService.findById(id);
+        return ResponseEntity.ok(newsDb);
     }
 
     @GetMapping("/code/{code}")
-    @Operation(description = "Get a Feature by Code")
+    @Operation(description = "Get a Bank News by Code")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Success"),
-            @ApiResponse(responseCode = "404", description = "Feature not found", content = @Content)
+            @ApiResponse(responseCode = "422", description = "Bank News code not found", content = @Content)
     })
     public ResponseEntity<BaseItem> findByCode(@PathVariable(name = "code")
                                                @Parameter(name = "code",
-                                                       description = "Feature Code",
-                                                       example = "FT-001") String code) {
-        BaseItem featureDb = baseService.findByCode(code);
-        return ResponseEntity.ok(featureDb);
+                                                       description = "Bank News Code",
+                                                       example = "NW-001") String code) {
+        BaseItem newsDb = baseService.findByCode(code);
+        return ResponseEntity.ok(newsDb);
 
     }
 
     @PostMapping
-    @Operation(description = "Create a Bank Feature")
+    @Operation(description = "Create a Bank News")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Feature created successfully"),
+            @ApiResponse(responseCode = "201", description = "Bank News created successfully"),
             @ApiResponse(responseCode = "422", description = "Business Exception. Please check the payload", content = @Content),
             @ApiResponse(responseCode = "500", description = "Server error not handled", content = @Content)
     })
-    public ResponseEntity<BaseItem> createFeature(@RequestBody @Valid Feature feature) {
-        baseService.create(feature);
+    public ResponseEntity<News> createNews(@RequestBody @Valid News news) {
+        baseService.create(news);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(feature.getId())
+                .buildAndExpand(news.getId())
                 .toUri();
-        return ResponseEntity.created(location).body(feature);
+        return ResponseEntity.created(location).body(news);
     }
 }

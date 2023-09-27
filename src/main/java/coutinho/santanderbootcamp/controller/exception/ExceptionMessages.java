@@ -7,7 +7,9 @@ public enum ExceptionMessages {
     CARD_NUMBER_ALREADY_EXISTS("This card number already exists"),
     FEATURE_NOT_FOUND("Feature code not found"),
     FEATURE_NOT_FOUND_BY_ID("Feature ID not found"),
-    NEWS_NOT_FOUND("News code not found");
+    NEWS_NOT_FOUND("News code not found"),
+    NEWS_NOT_FOUND_BY_ID("Bank News ID not found");
+
 
     private String description;
 
