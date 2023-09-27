@@ -1,7 +1,5 @@
 package coutinho.santanderbootcamp.service.validation;
 
-import coutinho.santanderbootcamp.domain.model.BaseItem;
-import coutinho.santanderbootcamp.domain.model.Feature;
 import coutinho.santanderbootcamp.repository.CardRepository;
 import coutinho.santanderbootcamp.repository.FeatureRepository;
 import coutinho.santanderbootcamp.repository.NewsRepository;
@@ -62,11 +60,24 @@ public final class BusinessRulesValidation {
         }
     }
 
-    public static void checkNewsCodeExists(NewsRepository newsRepository, List<String> newsCodes) {
+    public static void checkNewsCodeListExists(NewsRepository newsRepository, List<String> newsCodes) {
         for (String code : newsCodes) {
-            if (!newsRepository.existsByCode(code)) {
+            if (!newsRepository.existsNewsByCode(code)) {
                 throw new IllegalArgumentException(NEWS_NOT_FOUND.getDescription() + ": " + code);
             }
+        }
+    }
+
+
+    public static void checkNewsCodeExists(NewsRepository newsRepository, String newsCode) {
+        if (!newsRepository.existsNewsByCode(newsCode)) {
+            throw new IllegalArgumentException(NEWS_NOT_FOUND.getDescription() + ": " + newsCode);
+        }
+    }
+
+    public static void checkNewsExistsById(NewsRepository newsRepository, Long id) {
+        if (!isIdNull(id) && !newsRepository.existsNewsById(id)) {
+            throw new NoSuchElementException(NEWS_NOT_FOUND.getDescription());
         }
     }
 }
