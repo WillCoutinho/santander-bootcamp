@@ -1,18 +1,26 @@
 # Santander Bootcamp 2023
-Bootcamp project from [DIO](https://www.dio.me/) sponsored by [Santander](https://app.becas-santander.com/pt-BR/program/bolsas-santander-santander-bootcamp-2023).    
-This project was made in Java 17, SpringBoot 3 and Gradle with the aim of evaluating the technical knowledge acquired during the bootcamp.  
+Bootcamp project by [DIO](https://www.dio.me/) and sponsored by [Santander](https://app.becas-santander.com/pt-BR/program/bolsas-santander-santander-bootcamp-2023).    
+This project is developed in Java 17, Spring Boot 3, Gradle and serves as an evaluation of the technical knowledge acquired during the bootcamp    
 
 ## Figma
-This project was made using this Figma as support for APIs: [Santander - Dashboard](https://www.figma.com/file/0ZsjwjsYlYd3timxqMWlbj/SANTANDER---Projeto-Web%2FMobile?type=design&node-id=1421-432&mode=design)
+This project is designed with support from [Santander - Dashboard](https://www.figma.com/file/0ZsjwjsYlYd3timxqMWlbj/SANTANDER---Projeto-Web%2FMobile?type=design&node-id=1421-432&mode=design) on Figma for APIs.
 
 
 ## Requirements
-- Java 17 LTS installed and environment variables configured properly   
-- Git installed to clone this project
+Ensure you have the following prerequisites before running the project:  
+- [Java 17 LTS](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) installed with properly configured environment variables ([Oracle Docs](https://docs.oracle.com/cd/E11882_01/java.112/e10588/chfour.htm#JJDEV13217))   
+- Git installed to clone this project ([Git Docs](https://git-scm.com/downloads)).  
 
-## Install & Run
-WIP
+## Installation and Execution
+Follow these steps to clone and run the project:
 
+1. Clone the project (with admin privileges) using this command:  
+```bash
+git clone https://github.com/WillCoutinho/santander-bootcamp.git && cd santander-bootcamp
+```
+2. Start the project with this command: ``gradlew bootRun --args='--spring.profiles.active=dev'``    
+3. Once the project is running, you can access the Swagger documentation at the following URL: ``http://localhost/swagger-ui/index.html``  
+> **_Note_**: These instructions were tested on Windows 10.
 
 ## Class Diagram - Dashboard
 
