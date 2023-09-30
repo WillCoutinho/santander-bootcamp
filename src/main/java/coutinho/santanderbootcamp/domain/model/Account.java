@@ -3,7 +3,7 @@ package coutinho.santanderbootcamp.domain.model;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 
@@ -28,6 +28,15 @@ public class Account {
 
     @Column(name = "additional_limit", precision = 13, scale = 2, nullable = false)
     private BigDecimal limit;
+
+    public Account(){}
+
+    public Account(String number, String agency, BigDecimal balance, BigDecimal limit) {
+        this.number = number;
+        this.agency = agency;
+        this.balance = balance;
+        this.limit = limit;
+    }
 
     public Long getId() {
         return id;

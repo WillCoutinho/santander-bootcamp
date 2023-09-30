@@ -2,7 +2,7 @@ package coutinho.santanderbootcamp.domain.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 
@@ -19,6 +19,14 @@ public class Card {
 
     @Column(name = "additional_limit", precision = 13, scale = 2, nullable = false)
     private BigDecimal limit;
+
+    public Card() {
+    }
+
+    public Card(String cardNumber, BigDecimal limit) {
+        this.cardNumber = cardNumber;
+        this.limit = limit;
+    }
 
     public Long getId() {
         return id;
@@ -43,4 +51,6 @@ public class Card {
     public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }
+
+
 }

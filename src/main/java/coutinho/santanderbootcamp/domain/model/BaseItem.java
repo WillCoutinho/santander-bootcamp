@@ -1,8 +1,10 @@
 package coutinho.santanderbootcamp.domain.model;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @MappedSuperclass //Extende para Feature e News as annotations
 public abstract class BaseItem {
@@ -17,6 +19,15 @@ public abstract class BaseItem {
     private String code;
     @NotBlank
     private String description;
+
+    public BaseItem() {
+    }
+
+    public BaseItem(String icon, String code, String description) {
+        this.icon = icon;
+        this.code = code;
+        this.description = description;
+    }
 
     public String getCode() {
         return code;
@@ -48,5 +59,12 @@ public abstract class BaseItem {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Icon: " + icon + " | " +
+                "Code: " + code + " | " +
+                "Desc: " + description;
     }
 }
