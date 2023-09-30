@@ -1,10 +1,9 @@
 package coutinho.santanderbootcamp.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -24,12 +23,21 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private Card card;
 
-    //Toda vez que buscar um usuário no banco, vai trazer a lista também pois será utilizado
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //TODO: Make associations
     private List<String> features;
 
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<String> news;
+
+    public User() {
+    }
+
+    public User(String name, Account account, Card card, List<String> features, List<String> news) {
+        this.name = name;
+        this.account = account;
+        this.card = card;
+        this.features = features;
+        this.news = news;
+    }
 
     public Long getId() {
         return id;
