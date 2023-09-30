@@ -21,7 +21,11 @@ git clone https://github.com/WillCoutinho/santander-bootcamp.git && cd santander
 2. Start the project with this command: ``gradlew bootRun --args='--spring.profiles.active=dev'``    
 3. Once the project is running, you can access the Swagger documentation at the following URL: ``http://localhost/swagger-ui/index.html``  
 4. To run the tests available in this project, use the following command: ``gradlew test``
-> **_Note_**: These instructions were tested on Windows 10.
+
+> **_Notes_**   
+>* These instructions were tested on Windows 10  
+>* The "_postman-collections_" folder contains _.json_ files that can be imported into Postman for manual test execution  
+>* The "_prd_url_" within collection "_prd_" is hosted on Railway and may become unavailable due to associated usage charges  
 
 
 ## Class Diagram - Dashboard

@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "d659e1c5-b1f4-4b09-b159-9e394dc3e056",
+		"name": "Santander Dashboard - Bootcamp 2023",
+		"description": "Git: [https://github.com/WillCoutinho/santander-bootcamp](https://github.com/WillCoutinho/santander-bootcamp)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29855853"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Pegar usuário por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/users/1",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"account\": {\r\n        \"number\": \"{{$randomInt}}\",\r\n        \"agency\": \"{{$randomInt}}\",\r\n        \"balance\": 10000,\r\n        \"limit\": 5000\r\n    },\r\n    \"card\": {\r\n        \"cardNumber\": \"xxxx xxxx xxxx xxx4\",\r\n        \"limit\": 12000\r\n    },\r\n    \"features\": [\r\n        \"FT-001\",\r\n        \"FT-002\"\r\n    ],\r\n    \"news\": [\r\n        \"NW-001\",\r\n        \"NW-002\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/users",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/users/2",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bank Features",
+			"item": [
+				{
+					"name": "Buscar Produto por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/feature/id/1",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"feature",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Produto por Código",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/feature/code/FT-001",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"feature",
+								"code",
+								"FT-001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"icon\": \"{{$randomFilePath}}\",\r\n    \"code\": \"FT-{{$randomInt}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/feature",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"feature"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bank News",
+			"item": [
+				{
+					"name": "Buscar Noticias por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/news/id/1",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"news",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Noticias por Código",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local_url}}/news/code/NW-001",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"news",
+								"code",
+								"NW-001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Notícias",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"icon\": \"{{$randomFilePath}}\",\r\n    \"code\": \"NW-{{$randomInt}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local_url}}/news",
+							"host": [
+								"{{local_url}}"
+							],
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRD",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Pegar usuário por ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{prd_url}}/users/1",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Coutinho\",\r\n    \"account\": {\r\n        \"number\": \"{{$randomInt}}\",\r\n        \"agency\": \"{{$randomInt}}\",\r\n        \"balance\": 10000,\r\n        \"limit\": 5000\r\n    },\r\n    \"card\": {\r\n        \"cardNumber\": \"xxxx xxxx xxxx xxxx\",\r\n        \"limit\": 12000\r\n    },\r\n    \"features\": [\r\n        \"FT-001\",\r\n        \"FT-002\"\r\n    ],\r\n    \"news\": [\r\n        \"NW-001\",\r\n        \"NW-002\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{prd_url}}/users",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{prd_url}}/users/1",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bank Features",
+					"item": [
+						{
+							"name": "Buscar Produto por Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{prd_url}}/feature/id/5",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"feature",
+										"id",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Produto por Código",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{prd_url}}/feature/code/FT-007",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"feature",
+										"code",
+										"FT-007"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar Produto",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"icon\": \"{{$randomFilePath}}\",\r\n    \"code\": \"FT-{{$randomInt}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{prd_url}}/feature",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"feature"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bank News",
+					"item": [
+						{
+							"name": "Buscar Noticias por Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{prd_url}}/news/id/1",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"news",
+										"id",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar Noticias por Código",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{prd_url}}/news/code/FT-007",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"news",
+										"code",
+										"FT-007"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar Noticias",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"icon\": \"{{$randomFilePath}}\",\r\n    \"code\": \"NW-{{$randomInt}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{prd_url}}/news",
+									"host": [
+										"{{prd_url}}"
+									],
+									"path": [
+										"news"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
