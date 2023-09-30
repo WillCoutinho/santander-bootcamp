@@ -25,9 +25,7 @@ jobs:
         env:
           CI: true
 
-      - name: Deploy to Production
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          ./deploy.sh
-        env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+#      - name: Deploy to Production
+#        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+#        run: |
+#          ./deploy.sh
