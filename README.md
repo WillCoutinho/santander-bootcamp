@@ -20,7 +20,9 @@ git clone https://github.com/WillCoutinho/santander-bootcamp.git && cd santander
 ```
 2. Start the project with this command: ``gradlew bootRun --args='--spring.profiles.active=dev'``    
 3. Once the project is running, you can access the Swagger documentation at the following URL: ``http://localhost/swagger-ui/index.html``  
+4. To run the tests available in this project, use the following command: ``gradlew test``
 > **_Note_**: These instructions were tested on Windows 10.
+
 
 ## Class Diagram - Dashboard
 
@@ -82,6 +84,7 @@ classDiagram
 ## Tech Stack
 [Gradle](https://docs.gradle.org/current/userguide/userguide.html) - Build tool and dependency manager  
 [Java 17 LTS](https://www.oracle.com/br/java/technologies/downloads/#java17) - Long Term Support version of Java  
+[JUnit5](https://junit.org/junit5/docs/current/user-guide/) - Unit test for Java  
 [Mermaid](https://mermaid.js.org/syntax/classDiagram.html) - Class diagrams  
 [PostgreSQL](https://jdbc.postgresql.org/documentation/setup/) - Object-relational database system  
 [Railway](https://docs.railway.app/) - Cloud infrastructure  
